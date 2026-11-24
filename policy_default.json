@@ -1,0 +1,17 @@
+{
+  "weight_suspicious_call": 1,
+  "weight_direct_syscall": 4,
+  "weight_unhook": 3,
+  "weight_rwx": 3,
+  "weight_injection_chain": 8,
+  "weight_high_ratio": 4,
+  "threshold_ratio_min_calls": 20,
+  "threshold_ratio_pct": 40,
+  "baseline_weight_chain_delta": 5,
+  "baseline_ratio_increase_pct": 15,
+  "baseline_weight_ratio_delta": 4,
+  "baseline_multi_increase_min": 3,
+  "baseline_weight_multi_increase": 3,
+  "verdict_medium": 12,
+  "verdict_high": 25
+}

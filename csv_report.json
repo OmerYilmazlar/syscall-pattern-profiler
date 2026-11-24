@@ -1,0 +1,37 @@
+{
+  "trace": ".\\sample_trace_csv.txt",
+  "profile": "csv",
+  "policy_source": "<default>",
+  "verdict": "MEDIUM",
+  "score": 19,
+  "policy": {
+    "weight_suspicious_call": 1,
+    "weight_direct_syscall": 4,
+    "weight_unhook": 3,
+    "weight_rwx": 3,
+    "weight_injection_chain": 8,
+    "threshold_ratio_pct": 40,
+    "threshold_ratio_min_calls": 20
+  },
+  "metrics": {
+    "total_lines": 7,
+    "parsed_calls": 5,
+    "suspicious_calls": 4,
+    "chain_hits": 1,
+    "direct_syscall_hits": 1,
+    "unhook_hits": 0,
+    "rwx_hits": 1
+  },
+  "baseline": {
+    "enabled": false,
+    "path": "",
+    "suspicious_ratio_current": 80,
+    "suspicious_ratio_baseline": 0,
+    "chain_delta": 0,
+    "score_adjustment": 0
+  },
+  "top_calls": [{"name":"ntcreatethreadex","count":1},{"name":"event","count":1},{"name":"ntallocatevirtualmemory","count":1},{"name":"ntwritevirtualmemory","count":1},{"name":"ntprotectvirtualmemory","count":1}],
+  "call_increases": [],
+  "mitre_attack": [{"id":"T1055","name":"Process Injection","rationale":"Injection-related call chains and remote-thread style APIs observed."},{"id":"T1106","name":"Native API","rationale":"Trace indicates heavy reliance on low-level NT/native APIs."},{"id":"T1027","name":"Obfuscated/Compressed Files and Information","rationale":"Direct-syscall framework markers indicate evasion through indirect execution patterns."}],
+  "findings": [{"id":"SP-INJECT-CHAIN","severity":5,"line_no":0,"message":"Injection chain in PID 12 (alloc->write->protect->thread)"},{"id":"SP-EVASION-DIRECT","severity":4,"line_no":6,"message":"Direct-syscall/evasion keyword"},{"id":"SP-MEM-RWX","severity":3,"line_no":2,"message":"RWX memory protection marker"}]
+}

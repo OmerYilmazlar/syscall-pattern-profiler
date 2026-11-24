@@ -1,0 +1,16 @@
+# benign process noise
+time=12:00:00 pid=1000 syscall=NtQueryInformationProcess
+time=12:00:01 pid=1000 syscall=NtReadFile
+
+# suspicious chain in same pid
+time=12:01:10 pid=4120 syscall=NtAllocateVirtualMemory target=5560 protection=RWX
+time=12:01:11 pid=4120 syscall=NtWriteVirtualMemory target=5560 bytes=512
+time=12:01:12 pid=4120 syscall=NtProtectVirtualMemory target=5560 new=PAGE_EXECUTE_READ
+time=12:01:13 pid=4120 syscall=NtCreateThreadEx target=5560
+
+# direct syscall/evasion hints
+time=12:01:15 pid=4120 note=hellsgate syscall stub resolved dynamically
+time=12:01:16 pid=4120 note=restore ntdll unhook completed
+
+time=12:02:00 pid=7777 api=WriteProcessMemory target=1900
+time=12:02:01 pid=7777 api=CreateRemoteThread target=1900

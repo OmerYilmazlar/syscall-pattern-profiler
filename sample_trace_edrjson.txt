@@ -1,0 +1,5 @@
+{"time":"12:00:01","pid":4120,"syscall":"NtAllocateVirtualMemory","details":"protection=RWX"}
+{"time":"12:00:02","pid":4120,"api":"NtWriteVirtualMemory","target":5560}
+{"time":"12:00:03","pid":4120,"ntapi":"NtProtectVirtualMemory","new":"PAGE_EXECUTE_READ"}
+{"time":"12:00:04","pid":4120,"function":"NtCreateThreadEx","target":5560}
+{"time":"12:00:05","pid":4120,"note":"restore ntdll unhook completed"}

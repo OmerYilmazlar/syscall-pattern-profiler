@@ -1,0 +1,8 @@
+.zig-cache/
+.zig-global-cache/
+zig-out/
+*.exe
+*.obj
+*.o
+*.pdb
+.validation/

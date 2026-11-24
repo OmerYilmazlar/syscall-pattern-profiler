@@ -1,0 +1,6 @@
+time,pid,call,details
+12:00:01,4120,NtAllocateVirtualMemory,protection=RWX
+12:00:02,4120,NtWriteVirtualMemory,target=5560
+12:00:03,4120,NtProtectVirtualMemory,new=PAGE_EXECUTE_READ
+12:00:04,4120,NtCreateThreadEx,target=5560
+12:00:05,4120,Event,note=hellsgate direct syscall stub
